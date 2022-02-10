@@ -42,7 +42,7 @@ class SheetsToTablesTwigExtension extends \Twig_Extension
         // Figure out file type
         $inputFileType = IOFactory::identify($path);
         $reader = IOFactory::createReader($inputFileType);
-        $reader->setReadDataOnly(true);
+        $reader->setReadDataOnly(false);
         
         // Read
         $spreadsheet = $reader->load($path);
