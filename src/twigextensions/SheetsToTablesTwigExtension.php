@@ -59,7 +59,7 @@ class SheetsToTablesTwigExtension extends \Twig_Extension
         // Export HTML
         $writer = new Writer\Html($spreadsheet);
         $writer->generateStyles(false);
-        $writer->setUseInlineCss(false);
+        $writer->setUseInlineCss(true);
         $result = $writer->generateSheetData();
         
         // Clean up: remove style block
