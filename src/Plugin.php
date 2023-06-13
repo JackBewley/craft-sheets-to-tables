@@ -1,6 +1,6 @@
 <?php
 /**
- * Sheets to Tables plugin for Craft CMS 3.x
+ * Sheets to Tables plugin for Craft CMS 3.x, 4.x
  *
  * @link      https://miranj.in/
  * @copyright Copyright (c) Miranj Design LLP
@@ -11,6 +11,7 @@ namespace miranj\sheetstotables;
 use miranj\sheetstotables\twigextensions\SheetsToTablesTwigExtension;
 
 use Craft;
+use craft\base\Plugin as BasePlugin;
 use craft\elements\Asset;
 use craft\events\RegisterAssetFileKindsEvent;
 use craft\helpers\Assets;
@@ -20,7 +21,7 @@ use yii\base\Event;
  * Class Plugin
  *
  */
-class Plugin extends craft\base\Plugin
+class Plugin extends BasePlugin
 {
     
     /**
