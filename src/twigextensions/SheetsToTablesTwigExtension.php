@@ -61,14 +61,15 @@ class SheetsToTablesTwigExtension extends AbstractExtension
         
         // Export HTML
         $writer = new Writer\Html($spreadsheet);
-        $writer->generateStyles(false);
-        $writer->setUseInlineCss(true);
+        $styles = $writer->generateStyles(true);
+        $styles = trim($styles);
+        $writer->setUseInlineCss(false);
+        
         $result = $writer->generateSheetData();
         
-        // Clean up: remove style block
         $result = trim($result);
-        $result = preg_replace('/^<style>.*?<\\/style>/is', '', $result);
+        //$result = preg_replace('/^<style>.*?<\\/style>/is', '', $result);
         
-        return new Markup($result, 'UTF-8');
+        return new Markup($styles . $result, 'UTF-8');
     }
 }
